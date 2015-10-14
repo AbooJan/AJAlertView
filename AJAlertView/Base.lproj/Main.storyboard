@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2W-Pn-eMS">
+                                <rect key="frame" x="16" y="36" width="80" height="40"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="MAF-pI-sL3"/>
+                                    <constraint firstAttribute="height" constant="40" id="u7b-u3-mg3"/>
+                                </constraints>
+                                <state key="normal" title="弹窗1"/>
+                                <connections>
+                                    <action selector="showAlert1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KUQ-xi-D8y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WdP-TH-eWf">
+                                <rect key="frame" x="16" y="132" width="80" height="40"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="1To-Pt-zor"/>
+                                    <constraint firstAttribute="width" constant="80" id="zkn-bN-6v6"/>
+                                </constraints>
+                                <state key="normal" title="弹窗3"/>
+                                <connections>
+                                    <action selector="showAlert3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SI3-Vc-6zm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fl6-zV-tqL">
+                                <rect key="frame" x="16" y="180" width="80" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="0d5-tp-2UE"/>
+                                    <constraint firstAttribute="height" constant="30" id="sYn-zq-SXZ"/>
+                                </constraints>
+                                <state key="normal" title="弹窗4"/>
+                                <connections>
+                                    <action selector="showAlert4:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZUB-nd-Wo5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00M-GY-xTc">
+                                <rect key="frame" x="16" y="84" width="80" height="40"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="GfU-Uc-VoP"/>
+                                    <constraint firstAttribute="width" constant="80" id="eOM-sw-wyg"/>
+                                </constraints>
+                                <state key="normal" title="弹窗2"/>
+                                <connections>
+                                    <action selector="showAlert2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h2y-xP-zTF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="00M-GY-xTc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="4no-Ne-RcA"/>
+                            <constraint firstItem="WdP-TH-eWf" firstAttribute="top" secondItem="00M-GY-xTc" secondAttribute="bottom" constant="8" id="6ah-Kj-zjU"/>
+                            <constraint firstItem="Fl6-zV-tqL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="UpY-Aq-kls"/>
+                            <constraint firstItem="G2W-Pn-eMS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="XMo-N4-l3Y"/>
+                            <constraint firstItem="Fl6-zV-tqL" firstAttribute="top" secondItem="WdP-TH-eWf" secondAttribute="bottom" constant="8" id="nEG-5C-znx"/>
+                            <constraint firstItem="00M-GY-xTc" firstAttribute="top" secondItem="G2W-Pn-eMS" secondAttribute="bottom" constant="8" id="sC1-rh-kmo"/>
+                            <constraint firstItem="G2W-Pn-eMS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="xkJ-Gz-VoK"/>
+                            <constraint firstItem="WdP-TH-eWf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="z2g-Pw-Ljo"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
