@@ -26,8 +26,9 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
 
 @interface AJAlertView : PopupView
 
+- (instancetype)initWithAlertType:(AlertViewType)alertType;
+
 @property (nonatomic, assign) id<AJAlertViewDelegate> delegate;
-@property (nonatomic, assign) AlertViewType alertType;
 @property (nonatomic, strong) NSAttributedString *title;
 @property (nonatomic, strong) UIImage *logoImage;
 @property (nonatomic, strong) NSAttributedString *alertContent;

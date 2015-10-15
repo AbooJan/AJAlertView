@@ -8,15 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, AnimationDirection)
+{
+    AnimationDirectionUp,
+    AnimationDirectionDown
+};
+
 @interface PopupView : UIView
 
 /// 点击背景关闭，默认NO
 @property (nonatomic, assign) BOOL dismissOnTap;
 /// 弹窗大小
 @property (nonatomic, assign) CGSize popupSize;
-
-/// 一定要调这个方法，用于初始化
-- (void)confing;
+/// 动画方向, 默认 AnimationDirectionUp
+@property (nonatomic, assign) AnimationDirection animationDirection;
 
 /// 用于子类自定义视图
 - (void)setupCustomView;

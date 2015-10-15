@@ -64,14 +64,29 @@
                                     <action selector="showAlert2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h2y-xP-zTF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IM5-ct-kzW">
+                                <rect key="frame" x="16" y="544" width="568" height="40"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.94117647409439087" green="0.94117647409439087" blue="0.94117647409439087" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="OWJ-el-lkx"/>
+                                </constraints>
+                                <state key="normal" title="基本弹窗"/>
+                                <connections>
+                                    <action selector="showBaseAlert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EEd-bM-Yqr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="00M-GY-xTc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="4no-Ne-RcA"/>
                             <constraint firstItem="WdP-TH-eWf" firstAttribute="top" secondItem="00M-GY-xTc" secondAttribute="bottom" constant="8" id="6ah-Kj-zjU"/>
+                            <constraint firstAttribute="trailing" secondItem="IM5-ct-kzW" secondAttribute="trailing" constant="16" id="Hhg-is-q64"/>
+                            <constraint firstItem="IM5-ct-kzW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="Ivi-2k-p8f"/>
                             <constraint firstItem="Fl6-zV-tqL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="UpY-Aq-kls"/>
                             <constraint firstItem="G2W-Pn-eMS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="XMo-N4-l3Y"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IM5-ct-kzW" secondAttribute="bottom" constant="16" id="g24-Dl-1rl"/>
                             <constraint firstItem="Fl6-zV-tqL" firstAttribute="top" secondItem="WdP-TH-eWf" secondAttribute="bottom" constant="8" id="nEG-5C-znx"/>
                             <constraint firstItem="00M-GY-xTc" firstAttribute="top" secondItem="G2W-Pn-eMS" secondAttribute="bottom" constant="8" id="sC1-rh-kmo"/>
                             <constraint firstItem="G2W-Pn-eMS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="xkJ-Gz-VoK"/>

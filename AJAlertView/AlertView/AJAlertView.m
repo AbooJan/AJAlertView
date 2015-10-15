@@ -11,7 +11,7 @@
 #import "NSString+Size.h"
 
 #define kMainScreenWidth        [UIScreen mainScreen].bounds.size.width
-#define kDefaultAlertViewWidth  kMainScreenWidth * 0.8
+#define kDefaultAlertViewWidth  300.0
 #define kAlertContentFont       [UIFont systemFontOfSize:14]
 #define kDevideColor            [UIColor colorWithRed:220/255.0 green:220/255.0 blue:220/255.0 alpha:1];
 
@@ -22,6 +22,9 @@ static const CGFloat DEFAULT_LOGO_WIDTH         = 40.0;
 static const CGFloat DEFAULT_BORDER_WIDTH       = 8.0;
 
 @interface AJAlertView()
+
+@property (nonatomic, assign) AlertViewType alertType;
+
 @property (nonatomic, strong) UIView *titleView;
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) UIView *buttonView;
@@ -29,12 +32,16 @@ static const CGFloat DEFAULT_BORDER_WIDTH       = 8.0;
 
 @implementation AJAlertView
 
-- (void)confing
+- (instancetype)initWithAlertType:(AlertViewType)alertType
 {
-    [super confing];
-    
-    // 默认弹窗大小
-    [self setPopupSize:CGSizeMake(kDefaultAlertViewWidth, DEFAULT_TITLEVIEW_HEIGHT + DEFAULT_CONTENTVIEW_HEIGHT + DEFAULT_BUTTONVIEW_HEIGHT)];
+    self = [super init];
+    if (self) {
+        
+        // 默认提示框大小
+        self.popupSize = CGSizeMake(kDefaultAlertViewWidth, DEFAULT_TITLEVIEW_HEIGHT + DEFAULT_CONTENTVIEW_HEIGHT + DEFAULT_BUTTONVIEW_HEIGHT);
+        self.alertType = alertType;
+    }
+    return self;
 }
 
 - (void)setupCustomView
