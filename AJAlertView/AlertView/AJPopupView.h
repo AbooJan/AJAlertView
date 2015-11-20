@@ -14,7 +14,7 @@ typedef NS_ENUM(NSInteger, AnimationDirection)
     AnimationDirectionDown
 };
 
-@interface PopupView : UIView
+@interface AJPopupView : UIView
 
 /// 点击背景关闭，默认NO
 @property (nonatomic, assign) BOOL dismissOnTap;

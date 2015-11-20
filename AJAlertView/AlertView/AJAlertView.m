@@ -9,11 +9,13 @@
 #import "AJAlertView.h"
 #import "UIView+Extend.h"
 #import "NSString+Size.h"
+#import "NSMutableAttributedString+Extend.h"
 
 #define kMainScreenWidth        [UIScreen mainScreen].bounds.size.width
 #define kDefaultAlertViewWidth  300.0
 #define kAlertContentFont       [UIFont systemFontOfSize:14]
 #define kDevideColor            [UIColor colorWithRed:220/255.0 green:220/255.0 blue:220/255.0 alpha:1];
+#define RGB(R,G,B)		[UIColor colorWithRed:R/255.0f green:G/255.0f blue:B/255.0f alpha:1.0f]
 
 static const CGFloat DEFAULT_TITLEVIEW_HEIGHT   = 35.0;
 static const CGFloat DEFAULT_CONTENTVIEW_HEIGHT = 60.0;
@@ -74,14 +76,15 @@ static const CGFloat DEFAULT_BORDER_WIDTH       = 8.0;
     
     // 标题
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(borderWidth, 0, titleLabelWidth, titleLabelHeight)];
-    titleLabel.textColor = [UIColor darkGrayColor];
+    titleLabel.textColor = RGB(23, 23, 23);
     titleLabel.font = [UIFont systemFontOfSize:14];
     titleLabel.tag = 1001;
+    titleLabel.textAlignment = NSTextAlignmentLeft;
     [self.titleView addSubview:titleLabel];
     
     // 分界线
     UIImageView *lineView = [[UIImageView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(titleLabel.frame), titleLabelWidth, divideLineHeight)];
-    lineView.backgroundColor = kDevideColor;
+    lineView.backgroundColor = RGB(254,116,24);
     lineView.alpha = 0.8;
     lineView.tag = 1002;
     [self.titleView addSubview:lineView];
@@ -104,7 +107,7 @@ static const CGFloat DEFAULT_BORDER_WIDTH       = 8.0;
     descriptionLabel.tag = 1002;
     descriptionLabel.textAlignment = NSTextAlignmentLeft;
     descriptionLabel.font = kAlertContentFont;
-    descriptionLabel.textColor = [UIColor darkGrayColor];
+    descriptionLabel.textColor = RGB(67,67,67);
     descriptionLabel.numberOfLines = 0;
     [self.contentView addSubview:descriptionLabel];
 }
@@ -137,13 +140,13 @@ static const CGFloat DEFAULT_BORDER_WIDTH       = 8.0;
             break;
         }
         case AlertViewTypeSingleTextContainTitle: {
-
+            
             [self hideLogo];
             
             break;
         }
         case AlertViewTypeTextAndImageContainTitle: {
-
+            
             break;
         }
         default: {
@@ -195,7 +198,7 @@ static const CGFloat DEFAULT_BORDER_WIDTH       = 8.0;
     logo.hidden = YES;
     logo.width = 0.0;
     descriptionLabel.x = DEFAULT_BORDER_WIDTH;
-    descriptionLabel.width = self.contentView.width;
+    descriptionLabel.width = self.contentView.width - DEFAULT_BORDER_WIDTH * 2.0;
 }
 
 #pragma mark - 重写Set方法
@@ -205,6 +208,22 @@ static const CGFloat DEFAULT_BORDER_WIDTH       = 8.0;
     
     UILabel *titleLabel = (UILabel *)[self.titleView viewWithTag:1001];
     titleLabel.attributedText = _title;
+}
+
+- (void)setSimpleTitle:(NSString *)simpleTitle
+{
+    _simpleTitle = simpleTitle;
+    
+    UILabel *titleLabel = (UILabel *)[self.titleView viewWithTag:1001];
+    titleLabel.text = _simpleTitle;
+}
+
+- (void)setTitleAlignment:(NSTextAlignment)titleAlignment
+{
+    _titleAlignment = titleAlignment;
+    
+    UILabel *titleLabel = (UILabel *)[self.titleView viewWithTag:1001];
+    titleLabel.textAlignment = _titleAlignment;
 }
 
 - (void)setLogoImage:(UIImage *)logoImage
@@ -240,8 +259,18 @@ static const CGFloat DEFAULT_BORDER_WIDTH       = 8.0;
     }
 }
 
+- (void)setSimgpleAlertContent:(NSString *)simgpleAlertContent
+{
+    _simgpleAlertContent = simgpleAlertContent;
+    
+    NSMutableAttributedString *attrAlertContent = [[NSMutableAttributedString alloc] initWithString:_simgpleAlertContent];
+    [attrAlertContent setFont:[UIFont systemFontOfSize:14.0] range:NSMakeRange(0, _simgpleAlertContent.length)];
+    [attrAlertContent setTextColor:RGB(67,67,67) range:NSMakeRange(0, _simgpleAlertContent.length)];
+    
+    self.alertContent = attrAlertContent;
+}
 
-- (void)setButtonTitles:(NSArray<NSAttributedString *> *)attrButtonTitles
+- (void)setButtonTitles:(NSArray<__kindof NSAttributedString *> *)attrButtonTitles
 {
     _buttonTitles = attrButtonTitles;
     
@@ -252,6 +281,30 @@ static const CGFloat DEFAULT_BORDER_WIDTH       = 8.0;
         NSAttributedString *title = _buttonTitles[i];
         [self addbuttonWithAttrTitle:title index:i btnWidth:buttonWidth];
     }
+}
+
+- (void)setSimpleButtonTitles:(NSArray<__kindof NSString *> *)simpleButtonTitles
+{
+    _simpleButtonTitles = simpleButtonTitles;
+    
+    NSMutableArray *buttonArray = [NSMutableArray array];
+    
+    for (NSInteger i = 0; i < _simpleButtonTitles.count; i++) {
+        NSString *title = _simpleButtonTitles[i];
+        
+        NSMutableAttributedString *attrTitle = [[NSMutableAttributedString alloc] initWithString:title];
+        [attrTitle setFont:[UIFont systemFontOfSize:14.0] range:NSMakeRange(0, title.length)];
+        
+        if (i == 0) {
+            [attrTitle setTextColor:RGB(254,118,30) range:NSMakeRange(0, title.length)];
+        }else{
+            [attrTitle setTextColor:RGB(67,67,67) range:NSMakeRange(0, title.length)];
+        }
+        
+        [buttonArray addObject:attrTitle];
+    }
+    
+    self.buttonTitles = buttonArray;
 }
 
 - (void)addbuttonWithAttrTitle:(NSAttributedString *)title index:(NSInteger)index btnWidth:(CGFloat)btnWidth

@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "AJAlertView.h"
-#import "PopupView.h"
+#import "AJPopupView.h"
 
 @interface ViewController () <AJAlertViewDelegate>
 - (IBAction)showAlert1:(id)sender;
@@ -17,6 +17,7 @@
 - (IBAction)showAlert4:(id)sender;
 
 - (IBAction)showBaseAlert:(id)sender;
+- (IBAction)defaultStyleBtnClick:(UIButton *)sender;
 @end
 
 @implementation ViewController
@@ -92,11 +93,23 @@
 
 - (IBAction)showBaseAlert:(id)sender
 {
-    PopupView *popup = [[PopupView alloc] init];
+    AJPopupView *popup = [[AJPopupView alloc] init];
     popup.popupSize = CGSizeMake(300.0, 120.0);
     popup.dismissOnTap = YES;
     popup.animationDirection = AnimationDirectionDown;
     [popup show];
+}
+
+- (IBAction)defaultStyleBtnClick:(UIButton *)sender
+{
+    AJAlertView *exitPageAlertView = [[AJAlertView alloc] initWithAlertType:AlertViewTypeSingleTextContainTitle];
+    exitPageAlertView.tag = 1006;
+    exitPageAlertView.simpleTitle = @"提示";
+    exitPageAlertView.simpleButtonTitles = @[@"确定", @"取消"];
+    exitPageAlertView.simgpleAlertContent = @"你编辑的信息还未发布，是否确认退出该页面?";
+    exitPageAlertView.delegate = self;
+    
+    [exitPageAlertView show];
 }
 
 

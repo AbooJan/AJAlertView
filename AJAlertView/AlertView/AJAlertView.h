@@ -6,7 +6,7 @@
 //  Copyright © 2015年 钟宝健. All rights reserved.
 //
 
-#import "PopupView.h"
+#import "AJPopupView.h"
 
 typedef NS_ENUM(NSInteger, AlertViewType) {
     AlertViewTypeSingleText,
@@ -24,15 +24,23 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
 @end
 
 
-@interface AJAlertView : PopupView
+@interface AJAlertView : AJPopupView
 
 - (instancetype)initWithAlertType:(AlertViewType)alertType;
 
 @property (nonatomic, assign) id<AJAlertViewDelegate> delegate;
 @property (nonatomic, strong) NSAttributedString *title;
+@property (nonatomic, assign) NSTextAlignment titleAlignment;
 @property (nonatomic, strong) UIImage *logoImage;
 @property (nonatomic, strong) NSAttributedString *alertContent;
-@property (nonatomic, strong) NSArray<NSAttributedString *> *buttonTitles;
+@property (nonatomic, strong) NSArray<__kindof NSAttributedString *> *buttonTitles;
+
+/// 默认样式标题
+@property (nonatomic, copy) NSString *simpleTitle;
+/// 默认样式确定按钮
+@property (nonatomic, strong) NSArray <__kindof NSString *> *simpleButtonTitles;
+/// 默认样式提示内容
+@property (nonatomic, copy) NSString *simgpleAlertContent;
 
 // 标题颜色
 @property (nonatomic, strong) UIColor *titleColor;

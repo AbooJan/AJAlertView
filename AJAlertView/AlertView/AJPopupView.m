@@ -6,16 +6,16 @@
 //  Copyright © 2015年 钟宝健. All rights reserved.
 //
 
-#import "PopupView.h"
+#import "AJPopupView.h"
 #import <POP/POP.h>
 #import "UIColor+CustomColors.h"
 
-@interface PopupView()
+@interface AJPopupView()
 @property (nonatomic, strong) UIView *maskView;
 @property (nonatomic, assign) BOOL isShowing;
 @end
 
-@implementation PopupView
+@implementation AJPopupView
 
 - (instancetype)init
 {
