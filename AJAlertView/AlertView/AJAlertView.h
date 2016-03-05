@@ -15,6 +15,8 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
     AlertViewTypeTextAndImageContainTitle,
 };
 
+typedef void(^CallBack)(NSInteger index);
+
 @class AJAlertView;
 
 @protocol AJAlertViewDelegate <NSObject>
@@ -29,6 +31,7 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
 - (instancetype)initWithAlertType:(AlertViewType)alertType;
 
 @property (nonatomic, assign) id<AJAlertViewDelegate> delegate;
+@property (copy, nonatomic) void (^callBack) (NSInteger index);
 @property (nonatomic, strong) NSAttributedString *title;
 @property (nonatomic, assign) NSTextAlignment titleAlignment;
 @property (nonatomic, strong) UIImage *logoImage;

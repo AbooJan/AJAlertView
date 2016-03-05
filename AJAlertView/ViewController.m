@@ -38,6 +38,11 @@
     alert1.buttonTitles = @[confirmTitle, cancelTitle];
     alert1.delegate = self;
     [alert1 show];
+    
+    // block形式的回调
+    alert1.callBack = ^(NSInteger index){
+        NSLog(@"回调：%ld", index);
+    };
 }
 
 - (IBAction)showAlert2:(id)sender

@@ -340,6 +340,10 @@ static const CGFloat DEFAULT_BORDER_WIDTH       = 8.0;
     if ([self.delegate respondsToSelector:@selector(alertView:buttonClick:)]) {
         [self.delegate alertView:self buttonClick:index];
     }
+    
+    if(self.callBack){
+        self.callBack(index);
+    }
 }
 
 @end
